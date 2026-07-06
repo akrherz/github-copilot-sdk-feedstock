@@ -1,17 +1,18 @@
 {% set name = "github-copilot-sdk" %}
-{% set version = "0.1.22" %}
+{% set version = "1.0.5" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/github_copilot_sdk-{{ version }}.tar.gz
-  sha256: 8ea4534f0c8ab0fa04e0fec4c3ebd42d737cf7772277e4f8eb58a9fadac6bdb5
+  url: https://pypi.org/packages/py3/{{ name[0] }}/{{ name }}/github_copilot_sdk-{{ version }}-py3-none-any.whl
+  sha256: 4f4715553dfab863ffdbff250fc245fb484577e2a16c9cbaab3cf43bb69c4ca7
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install github*whl -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
@@ -23,6 +24,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
+    - httpx
     - python-dateutil >=2.9.0.post0
     - pydantic >=2.0
     - typing_extensions >=4.0.0
