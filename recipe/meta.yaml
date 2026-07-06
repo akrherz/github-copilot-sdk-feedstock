@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/github_copilot_sdk-{{ version }}-py3-none-any.whl
+  url: https://pypi.org/packages/py3/{{ name[0] }}/{{ name }}/github_copilot_sdk-{{ version }}-py3-none-any.whl
   sha256: 4f4715553dfab863ffdbff250fc245fb484577e2a16c9cbaab3cf43bb69c4ca7
 
 build:
